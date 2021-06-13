@@ -1,11 +1,5 @@
 import React, { useState } from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  TouchableOpacity,
-  TextInput,
-} from 'react-native';
+import { StyleSheet, View, TextInput } from 'react-native';
 
 import GreenButton from './GreenButton';
 
