@@ -1,32 +1,17 @@
 import { StatusBar } from 'expo-status-bar';
-import React, { useState } from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  TouchableOpacity,
-  TextInput,
-} from 'react-native';
+import React from 'react';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+
+import SearchBar from './components/SearchBar';
 
 export default function App() {
-  const [name, setName] = useState('');
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.headerText}>Games info!</Text>
       </View>
 
-      <View style={styles.searchBar}>
-        <TextInput
-          style={styles.search}
-          placeholder='Search'
-          onChangeText={(name) => setName(name)}
-          defaultValue={name}
-        />
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>Search</Text>
-        </TouchableOpacity>
-      </View>
+      <SearchBar />
 
       <View style={styles.buttonContainer}>
         <TouchableOpacity style={styles.button}>
@@ -75,17 +60,5 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: '#64ffda',
-  },
-  searchBar: {
-    marginHorizontal: 15,
-    flexDirection: 'row',
-    marginTop: 10,
-  },
-  search: {
-    flex: 1,
-    height: 44,
-    backgroundColor: '#fff',
-    color: 'black',
-    paddingLeft: 10,
   },
 });
