@@ -1,10 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, FlatList } from 'react-native';
 import axios from 'axios';
 
 import SearchBar from './components/SearchBar';
 import GreenButton from './components/GreenButton';
+import GamesListElement from './components/GamesListElement';
 
 import { popularGamesURL } from './api/api';
 
@@ -17,7 +18,8 @@ export default function App() {
     console.log(popularGamesURL());
     const response = await axios.get(popularGamesURL());
     const data = await response.data;
-    setPopularGames(data);
+    console.log(data.results[0].name);
+    setPopularGames(data.results);
   };
 
   useEffect(() => {
@@ -37,6 +39,14 @@ export default function App() {
         <GreenButton text='New Games' />
         <GreenButton text='Upcoming Games' />
       </View>
+
+      <FlatList
+        style={styles.gamesList}
+        data={popularGames}
+        renderItem={({ item }) => <GamesListElement item={item} />}
+        keyExtractor={(item) => item.id}
+        numColumns={2}
+      />
 
       <StatusBar style='light' />
     </View>
@@ -62,5 +72,11 @@ const styles = StyleSheet.create({
     marginTop: 20,
     flexDirection: 'row',
     justifyContent: 'space-around',
+  },
+  gamesList: {
+    marginTop: 20,
+  },
+  whiteText: {
+    color: '#fff',
   },
 });
