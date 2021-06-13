@@ -3,6 +3,9 @@ import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 
 import SearchBar from './components/SearchBar';
+import GreenButton from './components/GreenButton';
+
+// TO DO: onPress button
 
 export default function App() {
   return (
@@ -14,15 +17,9 @@ export default function App() {
       <SearchBar />
 
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>Popular</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>New Games</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>Upcoming Games</Text>
-        </TouchableOpacity>
+        <GreenButton text='Popular' />
+        <GreenButton text='New Games' />
+        <GreenButton text='Upcoming Games' />
       </View>
 
       <StatusBar style='light' />
@@ -52,13 +49,5 @@ const styles = StyleSheet.create({
     marginTop: 20,
     flexDirection: 'row',
     justifyContent: 'space-around',
-  },
-  button: {
-    padding: 10,
-    borderWidth: 2,
-    borderColor: '#64ffda',
-  },
-  buttonText: {
-    color: '#64ffda',
   },
 });

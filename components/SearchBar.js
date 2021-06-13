@@ -7,6 +7,8 @@ import {
   TextInput,
 } from 'react-native';
 
+import GreenButton from './GreenButton';
+
 // TO DO: onPress button
 
 const SearchBar = () => {
@@ -19,9 +21,7 @@ const SearchBar = () => {
         onChangeText={(name) => setName(name)}
         defaultValue={name}
       />
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>Search</Text>
-      </TouchableOpacity>
+      <GreenButton text='Search' />
     </View>
   );
 };
@@ -40,13 +40,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     color: 'black',
     paddingLeft: 10,
-  },
-  button: {
-    padding: 10,
-    borderWidth: 2,
-    borderColor: '#64ffda',
-  },
-  buttonText: {
-    color: '#64ffda',
   },
 });
