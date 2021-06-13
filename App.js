@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
 import SearchBar from './components/SearchBar';
 import GreenButton from './components/GreenButton';
@@ -41,9 +41,6 @@ const styles = StyleSheet.create({
     color: '#64ffda',
     fontSize: 25,
     fontWeight: '700',
-  },
-  mainText: {
-    color: '#fff',
   },
   buttonContainer: {
     marginTop: 20,
