@@ -1,13 +1,29 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import axios from 'axios';
 
 import SearchBar from './components/SearchBar';
 import GreenButton from './components/GreenButton';
 
+import { popularGamesURL } from './api/api';
+
 // TO DO: onPress button
 
 export default function App() {
+  const [popularGames, setPopularGames] = useState([]);
+
+  const fetchGames = async () => {
+    console.log(popularGamesURL());
+    const response = await axios.get(popularGamesURL());
+    const data = await response.data;
+    setPopularGames(data);
+  };
+
+  useEffect(() => {
+    fetchGames();
+  }, []);
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
