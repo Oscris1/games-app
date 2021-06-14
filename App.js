@@ -17,18 +17,21 @@ export default function App() {
   const [popularGames, setPopularGames] = useState([]);
   const [upcomingGames, setUpcomingGames] = useState([]);
   const [newGames, setNewGames] = useState([]);
-  const [games, setGames] = useState([]);
+  const [games, setGames] = useState();
 
+  // onPress Button
   const popularGamesHandler = () => setGames(popularGames);
   const upcomingGamesHandler = () => setGames(upcomingGames);
   const newGamesHandler = () => setGames(newGames);
 
+  // Fetch games data
   const fetchGames = async () => {
     console.log(popularGamesURL());
     const response = await axios.get(popularGamesURL());
     const data = await response.data;
     console.log(data.results[0].name);
     setPopularGames(data.results);
+    setGames(data.results);
   };
 
   const fetchUpcomingGames = async () => {
@@ -51,7 +54,6 @@ export default function App() {
     fetchGames();
     fetchUpcomingGames();
     fetchNewGames();
-    setGames(popularGames);
   }, []);
 
   return (
@@ -60,7 +62,7 @@ export default function App() {
         <Text style={styles.headerText}>Games info!</Text>
       </View>
 
-      <SearchBar />
+      <SearchBar setGameshandler={setGames} />
 
       <View style={styles.buttonContainer}>
         <GreenButton text='Popular' onPress={popularGamesHandler} />
@@ -75,7 +77,6 @@ export default function App() {
         keyExtractor={(item) => item.id}
         numColumns={2}
       />
-
       <StatusBar style='light' />
     </View>
   );
