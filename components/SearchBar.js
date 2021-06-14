@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, TextInput } from 'react-native';
+import { StyleSheet, View, TextInput, Keyboard } from 'react-native';
 import axios from 'axios';
 
 import GreenButton from './GreenButton';
@@ -12,6 +12,7 @@ const SearchBar = ({ setGameshandler }) => {
 
   const fetchSearchedGames = async (name) => {
     console.log(searchGameURL(name));
+    Keyboard.dismiss();
     const response = await axios.get(searchGameURL(name));
     const data = await response.data;
     console.log(data.results[0].name);
