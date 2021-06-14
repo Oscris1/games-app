@@ -8,11 +8,20 @@ import GreenButton from './components/GreenButton';
 import GamesListElement from './components/GamesListElement';
 
 import { popularGamesURL } from './api/api';
+import { upcomingGamesURL } from './api/api';
+import { newGamesURL } from './api/api';
 
 // TO DO: onPress button
 
 export default function App() {
   const [popularGames, setPopularGames] = useState([]);
+  const [upcomingGames, setUpcomingGames] = useState([]);
+  const [newGames, setNewGames] = useState([]);
+  const [games, setGames] = useState([]);
+
+  const popularGamesHandler = () => setGames(popularGames);
+  const upcomingGamesHandler = () => setGames(upcomingGames);
+  const newGamesHandler = () => setGames(newGames);
 
   const fetchGames = async () => {
     console.log(popularGamesURL());
@@ -22,8 +31,27 @@ export default function App() {
     setPopularGames(data.results);
   };
 
+  const fetchUpcomingGames = async () => {
+    console.log(upcomingGamesURL());
+    const response = await axios.get(upcomingGamesURL());
+    const data = await response.data;
+    console.log(data.results[0].name);
+    setUpcomingGames(data.results);
+  };
+
+  const fetchNewGames = async () => {
+    console.log(newGamesURL());
+    const response = await axios.get(newGamesURL());
+    const data = await response.data;
+    console.log(data.results[0].name);
+    setNewGames(data.results);
+  };
+
   useEffect(() => {
     fetchGames();
+    fetchUpcomingGames();
+    fetchNewGames();
+    setGames(popularGames);
   }, []);
 
   return (
@@ -35,14 +63,14 @@ export default function App() {
       <SearchBar />
 
       <View style={styles.buttonContainer}>
-        <GreenButton text='Popular' />
-        <GreenButton text='New Games' />
-        <GreenButton text='Upcoming Games' />
+        <GreenButton text='Popular' onPress={popularGamesHandler} />
+        <GreenButton text='New Games' onPress={newGamesHandler} />
+        <GreenButton text='Upcoming Games' onPress={upcomingGamesHandler} />
       </View>
 
       <FlatList
         style={styles.gamesList}
-        data={popularGames}
+        data={games}
         renderItem={({ item }) => <GamesListElement item={item} />}
         keyExtractor={(item) => item.id}
         numColumns={2}

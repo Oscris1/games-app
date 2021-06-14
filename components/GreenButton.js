@@ -3,9 +3,9 @@ import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 
 // TO DO: onPress button
 
-const GreenButton = ({ text }) => {
+const GreenButton = ({ text, onPress }) => {
   return (
-    <TouchableOpacity style={styles.button}>
+    <TouchableOpacity onPress={onPress} style={styles.button}>
       <Text style={styles.buttonText}>{text}</Text>
     </TouchableOpacity>
   );

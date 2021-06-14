@@ -40,6 +40,7 @@ const styles = StyleSheet.create({
     minWidth: itemWidth,
     margin: 10,
     overflow: 'hidden',
+    //backgroundColor: '#0f171e',
   },
   image: {
     flex: 3,
