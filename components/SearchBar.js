@@ -39,7 +39,6 @@ const styles = StyleSheet.create({
   searchBar: {
     marginHorizontal: 15,
     flexDirection: 'row',
-    marginTop: 10,
   },
   search: {
     flex: 1,
