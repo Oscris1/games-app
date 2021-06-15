@@ -28,8 +28,8 @@ const MainStackNavigator = () => {
       <Stack.Screen
         name='Game'
         component={GameDetailsScreen}
-        options={{
-          title: 'Game Detail',
+        options={({ route }) => ({
+          title: route.params.item.name,
           headerTitleAlign: 'center',
           headerStyle: {
             backgroundColor: '#17171a',
@@ -39,7 +39,7 @@ const MainStackNavigator = () => {
             fontWeight: 'bold',
             fontSize: 25,
           },
-        }}
+        })}
       />
     </Stack.Navigator>
   );
