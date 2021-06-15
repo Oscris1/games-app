@@ -8,15 +8,18 @@ import {
   ImageBackground,
 } from 'react-native';
 //import { useNavigation, useRoute } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 
 const { width } = Dimensions.get('window');
 const itemWidth = (width - 40) / 2; // width - margins
 
 const GamesListElement = ({ item }) => {
   const image = { uri: item.background_image };
+  const navigation = useNavigation();
   //const navigation = useNavigation();
   return (
     <TouchableOpacity
+      onPress={() => navigation.navigate('Game')}
       style={styles.container}
       //onPress={() => navigation.navigate('Drink', { item: item })}
     >
