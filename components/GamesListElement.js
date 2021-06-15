@@ -19,7 +19,7 @@ const GamesListElement = ({ item }) => {
   //const navigation = useNavigation();
   return (
     <TouchableOpacity
-      onPress={() => navigation.navigate('Game')}
+      onPress={() => navigation.navigate('Game', { item: item })}
       style={styles.container}
       //onPress={() => navigation.navigate('Drink', { item: item })}
     >
