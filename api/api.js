@@ -45,7 +45,8 @@ export const newGamesURL = () => `${base_url}${newGames}`;
 // TODO: ADD api keys below
 
 //GAME DETAILS
-export const gameDetailsURL = (game_id) => `${base_url}games/${game_id}`;
+export const gameDetailsURL = (game_id) =>
+  `${base_url}games/${game_id}?key=${key}`;
 
 //Game ScreenShots
 export const gameScreenshotURL = (game_id) =>
