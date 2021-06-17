@@ -8,6 +8,9 @@ import {
   ImageBackground,
   ScrollView,
 } from 'react-native';
+
+import RatingStars from '../components/RatingStars';
+
 import axios from 'axios';
 
 import { gameDetailsURL } from '../api/api';
@@ -34,11 +37,11 @@ const GameDetailsScreen = () => {
 
   return (
     <ScrollView style={styles.container}>
+      <RatingStars rating={item.rating} />
       <ImageBackground
         source={{ uri: item.background_image }}
         style={styles.image}
       ></ImageBackground>
-
       <View style={styles.textContainer}>
         <Text style={styles.text}>{game.description_raw}</Text>
       </View>
