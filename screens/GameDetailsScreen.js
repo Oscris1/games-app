@@ -9,10 +9,11 @@ import {
 import { useRoute } from '@react-navigation/native';
 import axios from 'axios';
 
+import { gameDetailsURL } from '../api/api';
+
 import RatingStars from '../components/RatingStars';
 import Platform from '../components/Platform';
-
-import { gameDetailsURL } from '../api/api';
+import Gallery from '../components/Gallery';
 
 const GameDetailsScreen = () => {
   const route = useRoute();
@@ -34,21 +35,29 @@ const GameDetailsScreen = () => {
 
   return (
     <ScrollView style={styles.container}>
+      {/* Rating stars */}
       <RatingStars rating={item.rating} />
+
+      {/* Game main image */}
       <ImageBackground
         source={{ uri: item.background_image }}
         style={styles.image}
       ></ImageBackground>
 
+      {/* Platforms */}
       <View style={styles.platforms}>
         {platforms.map((data) => {
           return <Platform key={data.platform.id} data={data} />;
         })}
       </View>
 
+      {/* Text */}
       <View style={styles.textContainer}>
         <Text style={styles.text}>{game.description_raw}</Text>
       </View>
+
+      {/* Screenshots gallery */}
+      <Gallery />
     </ScrollView>
   );
 };
@@ -67,7 +76,7 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
   },
   textContainer: {
-    marginVertical: 10,
+    marginVertical: 15,
     paddingHorizontal: 15,
   },
   text: {
