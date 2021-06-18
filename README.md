@@ -9,18 +9,18 @@ A mobile app where you can check info about popular, new and upcoming games( Pla
 - Axios
 - https://api.rawg.io/docs/
 
-## Video
+## Videos
 
-- Main functionality:
+### Main functionality:
 
 https://user-images.githubusercontent.com/48210346/122579666-6d54be80-d055-11eb-8e16-4c76d697d32a.mp4
 
-- Search:
+### Search:
 
 https://user-images.githubusercontent.com/48210346/122579913-b4db4a80-d055-11eb-828a-41e18d780f17.mp4
 
 
-- More examples: 
+### More examples: 
 
 https://user-images.githubusercontent.com/48210346/122580560-5f536d80-d056-11eb-93e3-1637d9654cd3.mp4
 
