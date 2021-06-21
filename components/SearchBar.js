@@ -11,11 +11,9 @@ const SearchBar = ({ setGameshandler }) => {
   const [name, setName] = useState('');
 
   const fetchSearchedGames = async (name) => {
-    console.log(searchGameURL(name));
     Keyboard.dismiss();
     const response = await axios.get(searchGameURL(name));
     const data = await response.data;
-    console.log(data.results[0].name);
     setGameshandler(data.results);
     setName('');
   };

@@ -23,33 +23,27 @@ const HomeScreen = () => {
   const newGamesHandler = () => setGames(newGames);
 
   // Fetch games data
-  const fetchGames = async () => {
-    console.log(popularGamesURL());
+  const fetchPopularGames = async () => {
     const response = await axios.get(popularGamesURL());
     const data = await response.data;
-    console.log(data.results[0].name);
     setPopularGames(data.results);
     setGames(data.results);
   };
 
   const fetchUpcomingGames = async () => {
-    console.log(upcomingGamesURL());
     const response = await axios.get(upcomingGamesURL());
     const data = await response.data;
-    console.log(data.results[0].name);
     setUpcomingGames(data.results);
   };
 
   const fetchNewGames = async () => {
-    console.log(newGamesURL());
     const response = await axios.get(newGamesURL());
     const data = await response.data;
-    console.log(data.results[0].name);
     setNewGames(data.results);
   };
 
   useEffect(() => {
-    fetchGames();
+    fetchPopularGames();
     fetchUpcomingGames();
     fetchNewGames();
   }, []);
