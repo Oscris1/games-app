@@ -7,7 +7,6 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 export const getPlatform = (name) => {
   const size = 25;
-  //const color = '#64ffda';
   const color = '#fff';
   if (name === 'PC')
     return <MaterialIcons name='computer' size={size} color={color} />;

@@ -1,8 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 
-// TO DO: onPress button
-
 const GreenButton = ({ text, onPress }) => {
   return (
     <TouchableOpacity onPress={onPress} style={styles.button}>

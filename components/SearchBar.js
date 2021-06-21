@@ -5,8 +5,6 @@ import axios from 'axios';
 import GreenButton from './GreenButton';
 import { searchGameURL } from '../api/api';
 
-// TO DO: onPress button
-
 const SearchBar = ({ setGameshandler }) => {
   const [name, setName] = useState('');
 

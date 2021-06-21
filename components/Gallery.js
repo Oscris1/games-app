@@ -5,7 +5,7 @@ import { useRoute } from '@react-navigation/native';
 import axios from 'axios';
 import { gameScreenshotURL } from '../api/api';
 
-const { width, height } = Dimensions.get('screen');
+const { width } = Dimensions.get('screen');
 
 const Gallery = () => {
   const route = useRoute();
