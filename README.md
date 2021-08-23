@@ -1,6 +1,6 @@
 # games-app (React Native)
 
-Simple messaging application
+Simple real-time messaging application
   
 ## Tech stack
 - React Native
